@@ -132,8 +132,6 @@ SearchBox.propTypes = {
   autocompleteResults: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.shape({
-      titleField: PropTypes.string.isRequired,
-      urlField: PropTypes.string.isRequired,
       linkTarget: PropTypes.string,
       sectionTitle: PropTypes.string
     })

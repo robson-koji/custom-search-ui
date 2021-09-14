@@ -15,9 +15,7 @@ export class SearchBoxContainer extends Component {
         clickThroughTags: PropTypes.arrayOf(PropTypes.string),
         linkTarget: PropTypes.string,
         sectionTitle: PropTypes.string,
-        shouldTrackClickThrough: PropTypes.bool,
-        titleField: PropTypes.string.isRequired,
-        urlField: PropTypes.string.isRequired
+        shouldTrackClickThrough: PropTypes.bool
       })
     ]),
     autocompleteSuggestions: PropTypes.oneOfType([
