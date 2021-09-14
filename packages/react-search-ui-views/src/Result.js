@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import { appendClassName, getUrlSanitizer } from "./view-helpers";
+import { appendClassName } from "./view-helpers";
 import { isFieldValueWrapper } from "./types/FieldValueWrapper";
 
 function getFieldType(result, field, type) {
@@ -49,59 +49,32 @@ function getEscapedFields(result) {
   }, {});
 }
 
-function Result({
-  className,
-  result,
-  onClickLink,
-  titleField,
-  urlField,
-  thumbnailField,
-  ...rest
-}) {
+function htmlDecode(content) {
+  content.replace(/&lt;a /g, ' &lt;a target="_parent" ');
+  let e = document.createElement("div");
+  e.innerHTML = content;
+  return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+}
+
+function Result({ className, result, ...rest }) {
   const fields = getEscapedFields(result);
-  const title = getEscapedField(result, titleField);
-  const url = getUrlSanitizer(URL, location)(getRaw(result, urlField));
-  const thumbnail = getUrlSanitizer(URL, location)(
-    getRaw(result, thumbnailField)
-  );
 
   return (
     <li className={appendClassName("sui-result", className)} {...rest}>
-      <div className="sui-result__header">
-        {title && !url && (
-          <span
-            className="sui-result__title"
-            dangerouslySetInnerHTML={{ __html: title }}
-          />
-        )}
-        {title && url && (
-          <a
-            className="sui-result__title sui-result__title-link"
-            dangerouslySetInnerHTML={{ __html: title }}
-            href={url}
-            onClick={onClickLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          />
-        )}
-      </div>
-
       <div className="sui-result__body">
-        {thumbnail && (
-          <div className="sui-result__image">
-            <img src={thumbnail} alt="" />
-          </div>
-        )}
         <ul className="sui-result__details">
-          {Object.entries(fields).map(([fieldName, fieldValue]) => (
-            <li key={fieldName}>
-              <span className="sui-result__key">{fieldName}</span>{" "}
-              <span
-                className="sui-result__value"
-                dangerouslySetInnerHTML={{ __html: fieldValue }}
-              />
-            </li>
-          ))}
+          {Object.entries(fields)
+            .filter(([fieldName]) => fieldName == "referencia")
+            .map(([fieldName, fieldValue]) => (
+              <li key={fieldName}>
+                {/* <span className="sui-result__key">{fieldName}</span>{" "} */}
+                <span
+                  className="sui-result__value"
+                  // dangerouslySetInnerHTML={{ __html: fieldValue.replace(/&lt;a /g, ' &lt;a target="_parent" ') }}
+                  dangerouslySetInnerHTML={{ __html: htmlDecode(fieldValue) }}
+                />
+              </li>
+            ))}
         </ul>
       </div>
     </li>
@@ -110,11 +83,7 @@ function Result({
 
 Result.propTypes = {
   result: PropTypes.object.isRequired,
-  onClickLink: PropTypes.func.isRequired,
-  className: PropTypes.string,
-  titleField: PropTypes.string,
-  urlField: PropTypes.string,
-  thumbnailField: PropTypes.string
+  className: PropTypes.string
 };
 
 export default Result;

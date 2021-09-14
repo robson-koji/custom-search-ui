@@ -1,7 +1,7 @@
 @include block('result') {
   @include themeTypography;
   list-style: none;
-  padding: $sizeL 0;
+  // padding: $sizeL 0;
   text-decoration: none;
   display: block;
   border: 1px solid #f0f0f0;
@@ -12,7 +12,7 @@
   overflow: hidden;
 
   & + & {
-    margin-top: $sizeXL;
+    margin-top: $sizeXS;
   }
 
   em {
@@ -115,5 +115,6 @@
     list-style: none;
     padding: $sizeM $sizeL;
     margin: 0;
+    // padding-inline-start: 20px;
   }
 }

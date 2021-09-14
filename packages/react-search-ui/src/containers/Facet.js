@@ -30,7 +30,7 @@ export class FacetContainer extends Component {
   };
 
   static defaultProps = {
-    filterType: "all",
+    filterType: "any",
     isFilterable: false
   };
 
