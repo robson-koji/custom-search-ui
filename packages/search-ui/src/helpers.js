@@ -61,18 +61,35 @@ export function markSelectedFacetValuesFromFilters(
   filterType
 ) {
   const facetValues = facet.data;
+  
   const filterValuesForField =
     findFilterValues(filters, fieldName, filterType) || [];
+
+
+  // Verificacao de checked.
+  // Remonta lista de facets, com os filhos.
+  const fc = (e) => {          
+      {
+        e.selected = filterValuesForField.some(filterValue => {
+          return doFilterValuesMatch(filterValue, e.value);
+        })      
+      }
+    e.children && e.children.forEach(fc);
+  }    
+  facetValues.forEach(fc);
+
+  
   return {
     ...facet,
-    data: facetValues.map(facetValue => {
-      return {
-        ...facetValue,
-        selected: filterValuesForField.some(filterValue => {
-          return doFilterValuesMatch(filterValue, facetValue.value);
-        })
-      };
-    })
+    data: facetValues
+    // data: facetValues.map(facetValue => {
+    //   return {
+    //     ...facetValue,
+    //     selected: filterValuesForField.some(filterValue => {
+    //       return doFilterValuesMatch(filterValue, facetValue.value);
+    //     })
+    //   };
+    // })
   };
 }
 
