@@ -53,7 +53,7 @@ export class ResultContainer extends Component {
       className,
       result: result,
       key: `result-${result.id.raw}`,
-      onClickLink: () => this.handleClickLink(result.id.raw),
+      // onClickLink: () => this.handleClickLink(result.id.raw),
       ...rest
     });
   }
