@@ -1,21 +1,46 @@
 @include block("multi-checkbox-facet") {
   color: $facetLinkColor;
   font-size: 13px;
-  margin: 8px 0;
+  margin: 8px 0 0 0 ;
 
-  @include element("option-label") {
-    display: flex;
+  @include element("option-label-parent") {
+    // display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: smaller;
+    // font-weight:bold;
+    // color: #8b9bad;
   }
+
+  @include element("option-label-child") {
+    // display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    flex-direction: column;
+    font-size: smaller;
+    align-items: flex-start;
+  }
+
 
   @include element("option-input-wrapper") {
     flex: 1;
+    justify-content: space-between;
+    display: flex;    
+  }
+
+  @include element("option-input-wrapper-left") {
+    display: flex;    
   }
 
   @include element("checkbox") {
+    display: 'inline-block';
     margin-right: $sizeS;
+    margin-left:10px;
+    margin-top: 1px;
     cursor: pointer;
   }
 
@@ -23,6 +48,13 @@
     color: #888888;
     font-size: 0.85em;
     margin-left: $sizeL;
+  }
+
+  @include element("has-children") {    
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    font-weight: bolder;
   }
 }
 

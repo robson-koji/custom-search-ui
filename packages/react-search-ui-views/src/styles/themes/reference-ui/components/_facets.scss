@@ -1,9 +1,32 @@
-@include block("facet") {
+@include block("facet-parent") {
   @include themeTypography;
   // fieldset reset
   margin: 0;
   padding: 0;
   border: 0;
+
+  & + & {
+    margin-top: $sizeS;
+  }
+
+  .sui-sorting + & {
+    margin-top: $sizeL;
+  }
+  @include fieldSetMixin()
+
+}
+
+
+@include block("facet-child") {
+  @include themeTypography;
+
+  // display: none;
+  margin: -6px 0 3px 16px;
+  padding: 0;  
+  border-left: 1px dashed lightgray;
+  border-bottom: 1px dashed lightgray;
+  border-style: none none dashed dashed;
+  border-radius: 5px;
 
   & + & {
     margin-top: $sizeXL;
@@ -12,28 +35,6 @@
   .sui-sorting + & {
     margin-top: $sizeXL;
   }
+  @include fieldSetMixin()
 
-  @include element("title") {
-    text-transform: uppercase;
-    font-size: 12px;
-    color: #8b9bad;
-    letter-spacing: 1px;
-    // legend reset
-    padding: 0;
-  }
-
-  @include element("list") {
-    line-height: 1.5;
-    font-size: 13px;
-    margin: $sizeS 0;
-    padding: 0;
-  }
-
-  @include element("count") {
-    color: $facetCountColor;
-    font-size: 0.85em;
-    margin-left: 20px;
-    display: inline-block;
-    padding-top: 2px;
-  }
 }
