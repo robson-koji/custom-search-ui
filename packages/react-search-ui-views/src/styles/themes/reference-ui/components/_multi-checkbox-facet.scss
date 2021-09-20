@@ -10,7 +10,7 @@
     cursor: pointer;
     flex-direction: column;
     align-items: flex-start;
-    font-size: smaller;
+    font-size: small;
     // font-weight:bold;
     // color: #8b9bad;
   }
@@ -21,7 +21,7 @@
     justify-content: space-between;
     cursor: pointer;
     flex-direction: column;
-    font-size: smaller;
+    font-size: small;
     align-items: flex-start;
   }
 
@@ -34,13 +34,14 @@
 
   @include element("option-input-wrapper-left") {
     display: flex;    
+    align-items: flex-start;
   }
 
   @include element("checkbox") {
     display: 'inline-block';
     margin-right: $sizeS;
     margin-left:10px;
-    margin-top: 1px;
+    margin-top: 3px;
     cursor: pointer;
   }
 
@@ -51,10 +52,14 @@
   }
 
   @include element("has-children") {    
-    margin: 0;
-    padding: 0;
+    color: darkblue;
     position: absolute;
     font-weight: bolder;
+
+    display: inline-block;     
+    z-index: 1;     
+    padding: 0 0 0 1em;     
+    margin: 0 0 0 -1em;     
   }
 }
 
