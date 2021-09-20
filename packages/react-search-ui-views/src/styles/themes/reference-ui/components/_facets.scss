@@ -20,7 +20,7 @@
 @include block("facet-child") {
   @include themeTypography;
 
-  // display: none;
+  display: none;
   margin: -6px 0 3px 16px;
   padding: 0;  
   border-left: 1px dashed lightgray;
