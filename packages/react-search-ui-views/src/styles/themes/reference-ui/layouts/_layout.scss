@@ -48,6 +48,17 @@
       padding: 0 15px;
     }
   }
+
+  @include element("chart") {
+    padding-top: 15px;
+    margin-bottom: -15px;
+    max-width: 1300px;
+    justify-content: space-between;
+    display: flex;
+    padding: 0 24px;
+  }
+    
+    
 }
 
 /**
