@@ -11,7 +11,8 @@ function Layout({
   bodyContent,
   bodyFooter,
   bodyHeader,
-  sideContent
+  sideContent,
+  chartContent
 }) {
   return (
     <div className={appendClassName("sui-layout", className)}>
@@ -19,6 +20,12 @@ function Layout({
         <div className="sui-layout-header__inner">{header}</div>
       </div>
       <div className="sui-layout-body">
+        <div className="sui-layout-body__chart">
+          {chartContent}
+          <div className="sui-layout-body-chart-articles"></div>
+          <div className="sui-layout-body-chart-citations"></div>
+        </div>
+
         <div className="sui-layout-body__inner">
           <LayoutSidebar className="sui-layout-sidebar">
             {sideContent}
