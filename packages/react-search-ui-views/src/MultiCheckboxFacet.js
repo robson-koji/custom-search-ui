@@ -157,17 +157,17 @@ function MultiCheckboxFacet({
 
 MultiCheckboxFacet.propTypes = {
   type: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   onMoreClick: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
   onSelect: PropTypes.func.isRequired,
   onSearch: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(FacetValue).isRequired,
-  showMore: PropTypes.bool.isRequired,
+  showMore: PropTypes.bool,
   className: PropTypes.string,
   showSearch: PropTypes.bool,
   searchPlaceholder: PropTypes.string,
-  child_id: PropTypes.string.isRequired
+  child_id: PropTypes.number
 };
 
 export default MultiCheckboxFacet;
