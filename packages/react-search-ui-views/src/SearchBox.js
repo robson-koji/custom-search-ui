@@ -1,4 +1,6 @@
 import PropTypes from "prop-types";
+import i18n from "i18next";
+
 import React from "react";
 import Downshift from "downshift";
 
@@ -75,7 +77,7 @@ function SearchBox(props) {
                 getInputProps={additionalProps => {
                   const { className, ...rest } = additionalProps || {};
                   return getInputProps({
-                    placeholder: "Search",
+                    placeholder: i18n.t("Buscar"),
                     ...inputProps,
                     className: appendClassName("sui-search-box__text-input", [
                       inputProps.className,
@@ -89,7 +91,7 @@ function SearchBox(props) {
                   const { className, ...rest } = additionalProps || {};
                   return {
                     type: "submit",
-                    value: "Search",
+                    value: i18n.t("Buscar"),
                     className: appendClassName(
                       "button sui-search-box__submit",
                       className

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import i18n from "i18next";
 import React from "react";
 
 import { appendClassName } from "./view-helpers";
@@ -13,15 +14,15 @@ function PagingInfo({
 }) {
   return (
     <div className={appendClassName("sui-paging-info", className)} {...rest}>
-      Showing{" "}
+      {i18n.t("Mostrando")}{" "}
       <strong>
         {start} - {end}
       </strong>{" "}
-      out of <strong>{totalResults}</strong>
+      {i18n.t("de")} <strong>{totalResults}</strong>
       {searchTerm && (
         <>
           {" "}
-          for: <em>{searchTerm}</em>
+          {i18n.t("para")}: <em>{searchTerm}</em>
         </>
       )}
     </div>
