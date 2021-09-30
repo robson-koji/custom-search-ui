@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import i18n from "i18next";
 import React from "react";
 
 import { appendClassName } from "./view-helpers";
@@ -64,7 +65,7 @@ function Result({ className, result, ...rest }) {
       <div className="sui-result__body">
         <ul className="sui-result__details">
           {Object.entries(fields)
-            .filter(([fieldName]) => fieldName == "referencia")
+            .filter(([fieldName]) => fieldName == i18n.t("referencia"))
             .map(([fieldName, fieldValue]) => (
               <li key={fieldName}>
                 {/* <span className="sui-result__key">{fieldName}</span>{" "} */}

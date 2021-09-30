@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import i18n from "i18next";
 import React from "react";
 
 import { FacetValue } from "./types";
@@ -148,7 +149,7 @@ function MultiCheckboxFacet({
           onClick={onMoreClick}
           aria-label="Show more options"
         >
-          + More
+          + {i18n.t("Mais")}
         </button>
       )}
     </fieldset>
