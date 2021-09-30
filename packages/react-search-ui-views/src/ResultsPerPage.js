@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import i18n from "i18next";
 import React from "react";
 import Select from "react-select";
 
@@ -40,7 +41,7 @@ function ResultsPerPage({
       className={appendClassName("sui-results-per-page", className)}
       {...rest}
     >
-      <div className="sui-results-per-page__label">Show</div>
+      <div className="sui-results-per-page__label">{i18n.t("Mostrar")}</div>
       <Select
         className="sui-select sui-select--inline"
         classNamePrefix="sui-select"
