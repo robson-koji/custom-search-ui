@@ -149,7 +149,14 @@ export class BarChartContainer extends Component {
       .attr("height", function(d) {
         return d.value === 0 ? 0 : height - y(d.value);
       });
+
+      // Something wrong here...
+      if (window.hit.length === 0 ){
+        d3.selectAll("svg > *").remove();
+      }
   }
+
+      // debugger;
 
   render() {
     // console.log('!!!aqui')
