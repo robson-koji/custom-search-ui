@@ -49,6 +49,7 @@ export const DEFAULT_STATE = {
   resultSearchTerm: "",
   totalPages: 0,
   totalResults: 0,
+  hasResults: false,
   pagingStart: 0,
   pagingEnd: 0,
   wasSearched: false,
@@ -345,6 +346,7 @@ export default class SearchDriver {
         filters: mergeFilters(filters, this.searchQuery.filters)
       };
 
+      
       return this.events.search(requestState, queryConfig).then(
         resultState => {
           if (this.searchRequestSequencer.isOldRequest(requestId)) return;
@@ -359,13 +361,18 @@ export default class SearchDriver {
               ? totalResults
               : start + resultsPerPage - 1;
 
+          let hasResults = false;
+          totalResults && (hasResults = true) ;
+
+          // debugger;
           this._setState({
             isLoading: false,
             resultSearchTerm: searchTerm,
             pagingStart: start,
             pagingEnd: end,
             ...resultState,
-            wasSearched: true
+            wasSearched: true,
+            hasResults: hasResults
           });
 
           if (this.hasA11yNotifications) {
