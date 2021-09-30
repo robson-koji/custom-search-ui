@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import i18n from "i18next";
 import { Component } from "react";
 import { MultiCheckboxFacet } from "@elastic/react-search-ui-views";
 import { helpers } from "@elastic/search-ui";
@@ -127,7 +128,9 @@ export class FacetContainer extends Component {
       onSearch: value => {
         this.handleFacetSearch(value);
       },
-      searchPlaceholder: `Filter ${field}`,
+      // searchPlaceholder: `Filter ${field}`,
+      searchPlaceholder: `${i18n.t("Filtrar")} ${label}`,
+
       ...rest
     });
   }
