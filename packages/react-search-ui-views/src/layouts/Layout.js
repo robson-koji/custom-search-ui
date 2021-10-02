@@ -12,7 +12,8 @@ function Layout({
   bodyFooter,
   bodyHeader,
   sideContent,
-  chartContent
+  chartContent,
+  messagesContent
 }) {
   return (
     <div className={appendClassName("sui-layout", className)}>
@@ -20,6 +21,8 @@ function Layout({
         <div className="sui-layout-header__inner">{header}</div>
       </div>
       <div className="sui-layout-body">
+        <div className="sui-layout-body__messages">{messagesContent}</div>
+
         <div className="sui-layout-body__chart">
           {chartContent}
           <div className="sui-layout-body-chart-articles"></div>
@@ -52,7 +55,9 @@ Layout.propTypes = {
   bodyContent: PropTypes.node,
   bodyFooter: PropTypes.node,
   bodyHeader: PropTypes.node,
-  sideContent: PropTypes.node
+  sideContent: PropTypes.node,
+  chartContent: PropTypes.node,
+  messagesContent: PropTypes.node    
 };
 
 export default Layout;
