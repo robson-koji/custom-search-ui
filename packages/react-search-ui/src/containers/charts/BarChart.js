@@ -10,8 +10,10 @@ export class BarChartContainer extends Component {
     data: PropTypes.string.isRequired,
     charts: PropTypes.string,
     wos_div: PropTypes.string,
+    titulo: PropTypes.string,
     // charts.numero_citacoes: PropTypes.array,
     // charts.ano_publicacao_exact: PropTypes.array,
+    hasResults: PropTypes.bool,
 
     view: PropTypes.func
   };
@@ -150,13 +152,13 @@ export class BarChartContainer extends Component {
         return d.value === 0 ? 0 : height - y(d.value);
       });
 
-      // Something wrong here...
-      if (window.hit.length === 0 ){
-        d3.selectAll("svg > *").remove();
-      }
+    // Something wrong here...
+    if (window.hit.length === 0) {
+      d3.selectAll("svg > *").remove();
+    }
   }
 
-      // debugger;
+  // debugger;
 
   render() {
     // console.log('!!!aqui')

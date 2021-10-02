@@ -8,3 +8,4 @@ export { default as ResultsPerPage } from "./ResultsPerPage";
 export { default as SearchBox } from "./SearchBox";
 export { default as Sorting } from "./Sorting";
 export { default as BarChart } from "./charts/BarChart";
+export { default as Messages } from "./Messages";
