@@ -51,9 +51,8 @@ function getEscapedFields(result) {
 }
 
 function htmlDecode(content) {
-  content.replace(/&lt;a /g, ' &lt;a target="_parent" ');
   let e = document.createElement("div");
-  e.innerHTML = content;
+  e.innerHTML = content.replace(/&lt;a /g, ' &lt;a target="_parent" ');
   return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
 }
 
