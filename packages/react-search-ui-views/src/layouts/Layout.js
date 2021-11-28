@@ -19,14 +19,15 @@ function Layout({
     <div className={appendClassName("sui-layout", className)}>
       <div className="sui-layout-header">
         <div className="sui-layout-header__inner">{header}</div>
+        <div className="sui-layout-body-chart-articles"></div>
       </div>
       <div className="sui-layout-body">
         <div className="sui-layout-body__messages">{messagesContent}</div>
 
         <div className="sui-layout-body__chart">
           {chartContent}
-          <div className="sui-layout-body-chart-articles"></div>
-          <div className="sui-layout-body-chart-citations"></div>
+          {/* <div className="sui-layout-body-chart-citations"></div>
+          <div className="sui-layout-body-chart-articles"></div> */}
         </div>
 
         <div className="sui-layout-body__inner">
@@ -57,7 +58,7 @@ Layout.propTypes = {
   bodyHeader: PropTypes.node,
   sideContent: PropTypes.node,
   chartContent: PropTypes.node,
-  messagesContent: PropTypes.node    
+  messagesContent: PropTypes.node
 };
 
 export default Layout;

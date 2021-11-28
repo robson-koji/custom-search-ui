@@ -29,11 +29,11 @@
   @include element("option-input-wrapper") {
     flex: 1;
     justify-content: space-between;
-    display: flex;    
+    display: flex;
   }
 
   @include element("option-input-wrapper-left") {
-    display: flex;    
+    display: flex;
     align-items: flex-start;
   }
 
@@ -51,15 +51,15 @@
     margin-left: $sizeL;
   }
 
-  @include element("has-children") {    
+  @include element("has-children") {
     color: darkblue;
     position: absolute;
     font-weight: bolder;
 
-    display: inline-block;     
-    z-index: 1;     
-    padding: 0 0 0 1em;     
-    margin: 0 0 0 -1em;     
+    display: inline-block;
+    // z-index: 1;
+    padding: 0 0 0 1em;
+    margin: 0 0 0 -1em;
   }
 }
 
